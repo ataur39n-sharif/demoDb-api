@@ -1,23 +1,25 @@
-
-# DemoDb Api [![wakatime](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4.svg)](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4)
+# DemoDb Api [![Work time](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4.svg)](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4)
 
 This is a Test CRUD api boilerplate build with NodeJs(express.js) and mongodb.
 
+```markdown
+live api - https://anxious-erin-shrug.cyclic.app/
+```
 
 ## API Reference
 
 #### Get all products
+
 By default this endpoint returns all product's . But using limit and page parameter you can set the return data limit.
 
 ```http
   GET /api/products
 ```
 
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `limit` | `number` | default value =100 |
-| `page` | `number` | default value =1 |
+| Parameter | Type     | Description        |
+|:----------|:---------|:-------------------|
+| `limit`   | `number` | default value =100 |
+| `page`    | `number` | default value =1   |
 
 #### Get single product
 
@@ -25,10 +27,9 @@ By default this endpoint returns all product's . But using limit and page parame
   GET /api/products/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                    |
+|:----------|:---------|:-------------------------------|
 | `id`      | `string` | ***Required** mongodb id (_id) |
-
 
 #### Search products
 
@@ -36,10 +37,9 @@ By default this endpoint returns all product's . But using limit and page parame
   GET /api/products/search?q=
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `q`      | `string` | ***Required** |
-
+| Parameter | Type     | Description   |
+|:----------|:---------|:--------------|
+| `q`       | `string` | ***Required** |
 
 #### Create new product
 
@@ -47,9 +47,9 @@ By default this endpoint returns all product's . But using limit and page parame
   POST /api/products/
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `title`      | `string` | ***Required** |
+| Parameter | Type     | Description   |
+|:----------|:---------|:--------------|
+| `title`   | `string` | ***Required** |
 
 ```http
 Parameters:
@@ -69,8 +69,8 @@ Parameters:
   PUT /api/products/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                    |
+|:----------|:---------|:-------------------------------|
 | `id`      | `string` | ***Required** mongodb id (_id) |
 
 #### DELETE product
@@ -79,10 +79,9 @@ Parameters:
   DELETE /api/products/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                    |
+|:----------|:---------|:-------------------------------|
 | `id`      | `string` | ***Required** mongodb id (_id) |
-
 
 ## Environment Variables
 
@@ -91,7 +90,6 @@ To run this project, you will need to add the following environment variables to
 `MONGO_URI`
 
 `PORT`
-
 
 ## Authors
 
