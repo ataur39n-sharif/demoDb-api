@@ -1,4 +1,5 @@
-# DemoDb Api [![wakatime](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4.svg)](https://wakatime.com/badge/user/fa185e46-0344-4585-b3ad-55f0e4fd8daf/project/f01b6a46-92c4-4817-aebb-675b7cbb61d4)
+# DemoDb Api [![wakatime](https://wakatime.com/badge/github/ataur39n-sharif/demoDb-api.svg)](https://wakatime.com/badge/github/ataur39n-sharif/demoDb-api)
+
 This is a Test CRUD api boilerplate build with NodeJs(express.js) and mongodb.
 
 ```markdown
