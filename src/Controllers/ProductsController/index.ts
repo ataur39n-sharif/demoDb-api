@@ -11,7 +11,14 @@ const productsController = {
             const products: ProductDocument[] = await ProductsModel.find()
                 .skip((dataLimit * pageNumber) - dataLimit)
                 .limit(dataLimit)
-            return res.status(200).json(products);
+
+            const totalProducts = await ProductsModel.countDocuments()
+            return res.status(200).json({
+                products,
+                page: pageNumber,
+                limit: dataLimit,
+                total: totalProducts
+            });
         } catch (error) {
             if (error instanceof Error)
                 return res.status(500).json({message: error.message});
