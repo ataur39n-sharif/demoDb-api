@@ -22,7 +22,6 @@ if (MONGO_URI) {
         .catch((err) => console.log(err.message))
 }
 
-
 app.listen(PORT || 8000, () => {
     console.log(`application running on port ${PORT}`)
 })
