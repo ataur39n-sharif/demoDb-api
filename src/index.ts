@@ -14,7 +14,6 @@ app.use('/api', rootRouter)
 
 const {MONGO_URI, PORT} = process.env
 
-
 if (MONGO_URI) {
     mongoose
         .connect(MONGO_URI)
