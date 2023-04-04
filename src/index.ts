@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import cors from 'cors';
 import express, {Application} from 'express'
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 import rootRouter from "./Router";
 
 dotenv.config()
@@ -21,6 +21,6 @@ if (MONGO_URI) {
         .catch((err) => console.log(err.message))
 }
 
-app.listen(PORT || 8000, () => {
+app.listen( 7000, () => {
     console.log(`application running on port ${PORT}`)
 })
