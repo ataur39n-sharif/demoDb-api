@@ -1,18 +1,18 @@
-import {Request, Response} from "express";
-import ProductsModel, {ProductDocument} from "../../Models/ProductsModel";
+import { Request, Response } from "express";
+import ProductsModel, { ProductDocument } from "../../Models/ProductsModel";
 
 const productsController = {
     /*get all products */
     getAllProducts: async (req: Request, res: Response) => {
         try {
-            const {page, limit} = req.query
+            const { page, limit } = req.query
+            const totalProducts = await ProductsModel.countDocuments()
             const pageNumber = Number(page) || 1
-            const dataLimit = Number(limit) || 100
+            const dataLimit = Number(limit) || totalProducts
             const products: ProductDocument[] = await ProductsModel.find()
                 .skip((dataLimit * pageNumber) - dataLimit)
                 .limit(dataLimit)
 
-            const totalProducts = await ProductsModel.countDocuments()
             return res.status(200).json({
                 products,
                 page: pageNumber,
@@ -21,23 +21,24 @@ const productsController = {
             });
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
     /*get product by id */
     getProductById: async (req: Request, res: Response) => {
         try {
-            const {id} = req.params
+            const { id } = req.params
             const product: ProductDocument | null = await ProductsModel.findById(id);
             res.status(200).json(product);
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
     /*create product*/
     createProduct: async (req: Request, res: Response) => {
         try {
+            console.log(req.body)
             const product: ProductDocument = new ProductsModel({
                 ...req.body,
             });
@@ -53,41 +54,41 @@ const productsController = {
             return res.status(201).json(product);
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
     /*update product*/
     updateProduct: async (req: Request, res: Response) => {
         try {
-            const {id} = req.params
-            const product: ProductDocument | null = await ProductsModel.findByIdAndUpdate(id, req.body, {new: true});
+            const { id } = req.params
+            const product: ProductDocument | null = await ProductsModel.findByIdAndUpdate(id, req.body, { new: true });
             res.status(200).json(product);
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
     /*delete product*/
     deleteProduct: async (req: Request, res: Response) => {
         try {
-            const {id} = req.params
+            const { id } = req.params
             const product: ProductDocument | null = await ProductsModel.findByIdAndDelete(id);
             res.status(200).json(product);
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
     /*search product*/
     searchProduct: async (req: Request, res: Response) => {
         try {
-            const {q} = req.query
+            const { q } = req.query
 
-            const products: ProductDocument[] = await ProductsModel.find({title: {$regex: q, $options: 'i'}});
+            const products: ProductDocument[] = await ProductsModel.find({ title: { $regex: q, $options: 'i' } });
             return res.status(200).json(products);
         } catch (error) {
             if (error instanceof Error)
-                return res.status(500).json({message: error.message});
+                return res.status(500).json({ message: error.message });
         }
     },
 }
