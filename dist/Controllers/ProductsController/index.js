@@ -18,12 +18,12 @@ const productsController = {
     getAllProducts: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { page, limit } = req.query;
+            const totalProducts = yield ProductsModel_1.default.countDocuments();
             const pageNumber = Number(page) || 1;
-            const dataLimit = Number(limit) || 100;
+            const dataLimit = Number(limit) || totalProducts;
             const products = yield ProductsModel_1.default.find()
                 .skip((dataLimit * pageNumber) - dataLimit)
                 .limit(dataLimit);
-            const totalProducts = yield ProductsModel_1.default.countDocuments();
             return res.status(200).json({
                 products,
                 page: pageNumber,
@@ -51,6 +51,7 @@ const productsController = {
     /*create product*/
     createProduct: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
+            console.log(req.body);
             const product = new ProductsModel_1.default(Object.assign({}, req.body));
             product.thumbnail = "https://i.dummyjson.com/data/products/1/thumbnail.jpg";
             product.images = [
