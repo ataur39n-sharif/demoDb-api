@@ -51,6 +51,8 @@ const productsController = {
                 "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
             ]
             await product.save();
+            console.log(product);
+
             return res.status(201).json(product);
         } catch (error) {
             if (error instanceof Error)

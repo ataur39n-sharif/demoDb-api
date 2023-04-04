@@ -62,6 +62,7 @@ const productsController = {
                 "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
             ];
             yield product.save();
+            console.log(product);
             return res.status(201).json(product);
         }
         catch (error) {

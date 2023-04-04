@@ -11,6 +11,7 @@ const dataSchema = new mongoose_1.Schema({
     thumbnail: { type: String, required: true },
     brand: { type: String, required: true },
     rating: { type: Number, required: true },
+    stock: { type: Number, required: true }
 });
 const ProductsModel = (0, mongoose_1.model)('product', dataSchema);
 exports.default = ProductsModel;
