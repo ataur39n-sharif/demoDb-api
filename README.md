@@ -12,7 +12,7 @@ live api - https://anxious-erin-shrug.cyclic.app/
 
 By default this endpoint returns all product's . But using limit and page parameter you can set the return data limit.
 
-```http
+```
   GET /api/products
 ```
 
@@ -23,7 +23,7 @@ By default this endpoint returns all product's . But using limit and page parame
 
 #### Get single product
 
-```http
+```
   GET /api/products/${id}
 ```
 
@@ -33,7 +33,7 @@ By default this endpoint returns all product's . But using limit and page parame
 
 #### Search products
 
-```http
+```
   GET /api/products/search?q=
 ```
 
@@ -43,7 +43,7 @@ By default this endpoint returns all product's . But using limit and page parame
 
 #### Create new product
 
-```http
+```
   POST /api/products/
 ```
 
@@ -51,7 +51,7 @@ By default this endpoint returns all product's . But using limit and page parame
 |:----------|:---------|:--------------|
 | `title`   | `string` | ***Required** |
 
-```http
+```
 Parameters:
 "title": "iPhone 9",
 "description": "An apple mobile which is nothing like apple",
@@ -65,7 +65,7 @@ Parameters:
 
 #### Update product
 
-```http
+```
   PUT /api/products/${id}
 ```
 
@@ -75,7 +75,7 @@ Parameters:
 
 #### DELETE product
 
-```http
+```
   DELETE /api/products/${id}
 ```
 
