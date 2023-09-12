@@ -51,7 +51,6 @@ const productsController = {
     /*create product*/
     createProduct: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            console.log(req.body);
             const product = new ProductsModel_1.default(Object.assign({}, req.body));
             product.thumbnail = "https://i.dummyjson.com/data/products/1/thumbnail.jpg";
             product.images = [

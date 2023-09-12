@@ -1,10 +1,8 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'
 import cors from 'cors';
-import express, { Application } from 'express'
+import express, {Application} from 'express'
 import mongoose from "mongoose";
 import rootRouter from "./Router";
-
-dotenv.config()
 
 const app: Application = express()
 
@@ -12,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/api', rootRouter)
 
-const { MONGO_URI, PORT } = process.env
+const {MONGO_URI, PORT = 5000} = process.env
 
 if (MONGO_URI) {
     mongoose
