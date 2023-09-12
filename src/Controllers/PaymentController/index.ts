@@ -60,7 +60,7 @@ const paymentCallback = async (req: Request, res: Response) => {
 
             if (result.statusCode && result.statusCode === "0000") {
                 return res.redirect(
-                    `${PaymentConfig.urls.frontend_success_url}?data=${result.statusMessage}`
+                    `${PaymentConfig.urls.frontend_success_url}?status=${result.statusMessage}`
                 );
             } else {
 
