@@ -22,7 +22,7 @@ const PaymentConfig = {
         refresh_token_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/refresh",
         create_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/create",
         execute_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/execute",
-        backend_callback_url: "http://localhost:5000/api/bkash/callback",
+        backend_callback_url: process.env.backend_callback_url as string,
         frontend_success_url: process.env.frontend_success_url as string,
         frontend_fail_url: process.env.frontend_success_url as string,
     }
