@@ -54,4 +54,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: bash update.sh
+          script: bash test-docker-project/update.sh 
