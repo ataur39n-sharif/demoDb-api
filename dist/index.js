@@ -19,6 +19,6 @@ if (MONGO_URI) {
         .then((result) => console.log('DB Connected'))
         .catch((err) => console.log(err.message));
 }
-app.listen(PORT, () => {
+app.listen(5000, () => {
     console.log(`application running on port ${PORT}`);
 });
