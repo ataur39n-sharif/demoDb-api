@@ -5,6 +5,10 @@ import {TokenUtils} from "../Utils/globalToken";
 
 const generateToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
+        console.log(PaymentConfig)
+        console.log({
+            header: HeaderUtils.tokenHeaders()
+        })
         const tokenResponse = await fetch(PaymentConfig.urls.grant_token_url, {
             method: "POST",
             headers: HeaderUtils.tokenHeaders(),
@@ -14,7 +18,8 @@ const generateToken = async (req: Request, res: Response, next: NextFunction) =>
             }),
         });
         const tokenResult = await tokenResponse.json();
-        
+        console.log({tokenResult})
+
         TokenUtils.setIdToken(tokenResult?.id_token);
         next();
     } catch (e) {

@@ -32,6 +32,7 @@ const create_payment = (req, res) => __awaiter(void 0, void 0, void 0, function*
             }),
         });
         const data = yield result.json();
+        console.log({ data });
         if (data.statusCode === '0000' && data.statusMessage === 'Successful') {
             return res.status(201).json({
                 success: true,
@@ -64,8 +65,9 @@ const paymentCallback = (req, res) => __awaiter(void 0, void 0, void 0, function
                 }),
             });
             const result = yield executeResponse.json();
+            console.log(result);
             if (result.statusCode && result.statusCode === "0000") {
-                return res.redirect(`${Config_1.default.urls.frontend_success_url}?data=${result.statusMessage}`);
+                return res.redirect(`${Config_1.default.urls.frontend_success_url}?status=${result.statusMessage}`);
             }
             else {
                 return res.redirect(Config_1.default.urls.frontend_fail_url);

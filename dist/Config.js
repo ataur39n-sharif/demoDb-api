@@ -10,6 +10,23 @@
 // }
 // }
 Object.defineProperty(exports, "__esModule", { value: true });
+// const PaymentConfig = {
+//     username: process.env.username as string,
+//     password: process.env.password as string,
+//     app: {
+//         app_key: process.env.app_key as string,
+//         app_secret: process.env.app_secret as string
+//     },
+//     urls: {
+//         grant_token_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/grant",
+//         refresh_token_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/refresh",
+//         create_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/create",
+//         execute_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/execute",
+//         backend_callback_url: process.env.backend_callback_url as string,
+//         frontend_success_url: process.env.frontend_success_url as string,
+//         frontend_fail_url: process.env.frontend_success_url as string,
+//     }
+// }
 const PaymentConfig = {
     username: process.env.username,
     password: process.env.password,
@@ -18,9 +35,9 @@ const PaymentConfig = {
         app_secret: process.env.app_secret
     },
     urls: {
-        grant_token_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/grant",
+        grant_token_url: " https://checkout.sandbox.bka.sh/v1.2.0-beta/checkout/token/grant",
         refresh_token_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/refresh",
-        create_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/create",
+        create_payment_url: " https://checkout.sandbox.bka.sh/v1.2.0-beta/checkout/payment/create",
         execute_payment_url: "https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/execute",
         backend_callback_url: process.env.backend_callback_url,
         frontend_success_url: process.env.frontend_success_url,

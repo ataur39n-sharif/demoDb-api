@@ -17,6 +17,10 @@ const authHearder_1 = require("../Utils/authHearder");
 const globalToken_1 = require("../Utils/globalToken");
 const generateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log(Config_1.default);
+        console.log({
+            header: authHearder_1.HeaderUtils.tokenHeaders()
+        });
         const tokenResponse = yield fetch(Config_1.default.urls.grant_token_url, {
             method: "POST",
             headers: authHearder_1.HeaderUtils.tokenHeaders(),
@@ -26,6 +30,7 @@ const generateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, func
             }),
         });
         const tokenResult = yield tokenResponse.json();
+        console.log({ tokenResult });
         globalToken_1.TokenUtils.setIdToken(tokenResult === null || tokenResult === void 0 ? void 0 : tokenResult.id_token);
         next();
     }

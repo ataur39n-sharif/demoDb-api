@@ -21,6 +21,8 @@ const create_payment = async (req: Request, res: Response) => {
         });
         const data = await result.json();
 
+        console.log({data})
+
         if (data.statusCode === '0000' && data.statusMessage === 'Successful') {
             return res.status(201).json({
                 success: true,
@@ -57,6 +59,7 @@ const paymentCallback = async (req: Request, res: Response) => {
                 }),
             });
             const result = await executeResponse.json();
+            console.log(result)
 
             if (result.statusCode && result.statusCode === "0000") {
                 return res.redirect(
