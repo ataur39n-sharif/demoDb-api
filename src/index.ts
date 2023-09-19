@@ -8,6 +8,12 @@ const app: Application = express()
 
 app.use(cors())
 app.use(express.json())
+app.get('/',(req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Successfully uploaded and deployed new file'
+    })
+})
 app.use('/api', rootRouter)
 
 const {MONGO_URI, PORT = 5000} = process.env
